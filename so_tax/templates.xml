@@ -1,0 +1,28 @@
+<openerp>
+    <data>
+        <record id="sale_view_order_form_so_tax" model="ir.ui.view">
+            <field name="name">sale.view_order_form_so_tax</field>
+            <field name="model">sale.order</field>
+            <field name="inherit_id" ref="sale.view_order_form"/>
+            <field name="arch" type="xml">
+                <field name='note' position="before">
+                    <field name='tax_ids'
+                        widget="many2many_tags"
+                        onchange="onchange_tax_ids"/>
+                </field>
+            </field>
+        </record>
+        <record id="account_invoice_form_so_tax" model="ir.ui.view">
+            <field name="name">account.invoice_form_so_tax</field>
+            <field name="model">account.invoice</field>
+            <field name="inherit_id" ref="account.invoice_form"/>
+            <field name="arch" type="xml">
+                <field name='payment_term' position="before">
+                    <field name='tax_ids'
+                        widget="many2many_tags"
+                        onchange="onchange_tax_ids"/>
+                </field>
+            </field>
+        </record>
+    </data>
+</openerp>
